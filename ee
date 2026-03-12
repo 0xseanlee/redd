@@ -1,0 +1,15 @@
+-- 獲取當前伺服器的 JobId
+local jobId = game.JobId
+
+-- 使用 Executor 特有的函式複製到剪貼簿
+if setclipboard then
+    setclipboard(jobId)
+    -- 發出一個簡單的通知讓你知道成功了
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "JobID 已複製",
+        Text = "JobID: " .. jobId,
+        Duration = 5
+    })
+else
+    warn("你的 Executor 不支援 setclipboard 函式")
+end
